@@ -1,0 +1,96 @@
+{
+  "class": "go.GraphLinksModel",
+  "copiesArrays": true,
+  "copiesArrayObjects": true,
+  "linkFromPortIdProperty": "fromPort",
+  "linkToPortIdProperty": "toPort",
+  "nodeDataArray": [
+    {
+      "name": "HUB",
+      "leftArray": [],
+      "rightArray": [],
+      "topArray": [],
+      "bottomArray": [
+        {
+          "portId": "bottom0",
+          "portColor": "#97cfac"
+        },
+        {
+          "portId": "bottom1",
+          "portColor": "#d6c482"
+        },
+        {
+          "portId": "bottom2",
+          "portColor": "#e5e896"
+        }
+      ],
+      "key": -9,
+      "loc": "0 0"
+    },
+    {
+      "name": "Major 1",
+      "leftArray": [],
+      "rightArray": [],
+      "topArray": [
+        {
+          "portId": "top0",
+          "portColor": "#9be7f5"
+        }
+      ],
+      "bottomArray": [],
+      "key": -10,
+      "loc": "-450 200"
+    },
+    {
+      "name": "Major 6",
+      "leftArray": [],
+      "rightArray": [],
+      "topArray": [
+        {
+          "portId": "top0",
+          "portColor": "#ddc4a9"
+        }
+      ],
+      "bottomArray": [],
+      "key": -8,
+      "loc": "-300 200"
+    },
+    {
+      "name": "Major 2",
+      "leftArray": [],
+      "rightArray": [],
+      "topArray": [
+        {
+          "portId": "top0",
+          "portColor": "#b0ece5"
+        }
+      ],
+      "bottomArray": [],
+      "key": -7,
+      "loc": "-150 200"
+    }
+  ],
+  "linkDataArray": [
+    {
+      "from": -9,
+      "to": -10,
+      "fromPort": "bottom0",
+      "toPort": "top0",
+      "points": []
+    },
+    {
+      "from": -9,
+      "to": -8,
+      "fromPort": "bottom1",
+      "toPort": "top0",
+      "points": []
+    },
+    {
+      "from": -9,
+      "to": -7,
+      "fromPort": "bottom2",
+      "toPort": "top0",
+      "points": []
+    }
+  ]
+}
