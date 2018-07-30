@@ -1,3 +1,8 @@
+//global color varible
+const connection_stable = "#4AE502"
+
+
+
 function init() {
 
     load();
@@ -344,7 +349,7 @@ function addPort(side) {
       // create a new port data object
       var newportdata = {
         portId: name,
-        portColor: go.Brush.randomColor()
+        portColor: connection_stable
         // if you add port data properties here, you should copy them in copyPortData above
       };
       // and add it to the Array of port data
@@ -460,7 +465,7 @@ function requestData() {
                          "topArray": [
                               {
                                  "portId": "top0",
-                                 "portColor": go.Brush.randomColor()
+                                 "portColor": connection_stable
                               }
                           ],
                          "bottomArray": [],
@@ -483,7 +488,7 @@ function requestData() {
                      var newHubPort =
                      {
                         "portId": "bottom"+hubNode["bottomArray"].length.toString(),
-                        "portColor": go.Brush.randomColor()
+                        "portColor": connection_stable
                      }
                      myDiagram.model.insertArrayItem(hubNode["bottomArray"], -1, newHubPort);
                      myDiagram.model.addNodeData(newData);
