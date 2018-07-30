@@ -13,33 +13,11 @@
       "bottomArray": [
         {
           "portId": "bottom0",
-          "portColor": "#fba7ca"
-        },
-        {
-          "portId": "bottom1",
-          "portColor": "#8c8aaa"
-        },
-        {
-          "portId": "bottom2",
-          "portColor": "#80cb8a"
+          "portColor": "#88dcd0"
         }
       ],
       "key": -9,
       "loc": "150 0"
-    },
-    {
-      "name": "Major 1",
-      "leftArray": [],
-      "rightArray": [],
-      "topArray": [
-        {
-          "portId": "top0",
-          "portColor": "#9afee6"
-        }
-      ],
-      "bottomArray": [],
-      "key": -10,
-      "loc": "0 200"
     },
     {
       "name": "Major 6",
@@ -48,26 +26,19 @@
       "topArray": [
         {
           "portId": "top0",
-          "portColor": "#f5c6fc"
+          "portColor": "#da8e9f"
         }
       ],
       "bottomArray": [],
-      "key": -8,
-      "loc": "150 200"
-    },
-    {
-      "name": "Major 2",
-      "leftArray": [],
-      "rightArray": [],
-      "topArray": [
-        {
-          "portId": "top0",
-          "portColor": "#dbc6ca"
-        }
-      ],
-      "bottomArray": [],
-      "key": -7,
-      "loc": "300 200"
+      "key": -10,
+      "loc": "0 200",
+      "major": 6,
+      "minor": 36970,
+      "time": "2018-07-30 15:03:05",
+      "timestamp": 1532962985686,
+      "temp": 25.91,
+      "hum": 64.31,
+      "rssi": -68
     }
   ],
   "linkDataArray": [
@@ -75,20 +46,6 @@
       "from": -9,
       "to": -10,
       "fromPort": "bottom0",
-      "toPort": "top0",
-      "points": []
-    },
-    {
-      "from": -9,
-      "to": -8,
-      "fromPort": "bottom1",
-      "toPort": "top0",
-      "points": []
-    },
-    {
-      "from": -9,
-      "to": -7,
-      "fromPort": "bottom2",
       "toPort": "top0",
       "points": []
     }
