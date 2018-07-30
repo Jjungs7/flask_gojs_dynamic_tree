@@ -1,6 +1,6 @@
 //global color varible
 const connection_stable = "#4AE502"
-
+const nodeColor = "#708090"
 
 
 function init() {
@@ -88,8 +88,9 @@ function init() {
         { row: 1, column: 1, name: "BODY",
           stretch: go.GraphObject.Fill },
         GO(go.Shape, "Rectangle",
-          { fill: "#AC193D", stroke: null, strokeWidth: 0,
-              minSize: new go.Size(85, 50) }),
+          { fill: "#808080", stroke: null, strokeWidth: 0,
+              minSize: new go.Size(85, 50) }, new go.Binding("fill", "nodeColor")),
+
         GO(go.TextBlock,
           { margin: 10, textAlign: "center", font: "14px  Segoe UI,sans-serif", stroke: "white", editable: true },
           new go.Binding("text", "name").makeTwoWay()) // bind Textblock.text to data's name
@@ -468,6 +469,7 @@ function requestData() {
                                  "portColor": connection_stable
                               }
                           ],
+                         "nodeColor": nodeColor,
                          "bottomArray": [],
                          "key": newKey,
                          "loc": ((nodes.length-1) * 150).toString() + " 200",
