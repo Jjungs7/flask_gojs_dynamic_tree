@@ -13,19 +13,19 @@
       "bottomArray": [
         {
           "portId": "bottom0",
-          "portColor": "#97cfac"
+          "portColor": "#fba7ca"
         },
         {
           "portId": "bottom1",
-          "portColor": "#d6c482"
+          "portColor": "#8c8aaa"
         },
         {
           "portId": "bottom2",
-          "portColor": "#e5e896"
+          "portColor": "#80cb8a"
         }
       ],
       "key": -9,
-      "loc": "0 0"
+      "loc": "150 0"
     },
     {
       "name": "Major 1",
@@ -34,12 +34,12 @@
       "topArray": [
         {
           "portId": "top0",
-          "portColor": "#9be7f5"
+          "portColor": "#9afee6"
         }
       ],
       "bottomArray": [],
       "key": -10,
-      "loc": "-450 200"
+      "loc": "0 200"
     },
     {
       "name": "Major 6",
@@ -48,12 +48,12 @@
       "topArray": [
         {
           "portId": "top0",
-          "portColor": "#ddc4a9"
+          "portColor": "#f5c6fc"
         }
       ],
       "bottomArray": [],
       "key": -8,
-      "loc": "-300 200"
+      "loc": "150 200"
     },
     {
       "name": "Major 2",
@@ -62,12 +62,12 @@
       "topArray": [
         {
           "portId": "top0",
-          "portColor": "#b0ece5"
+          "portColor": "#dbc6ca"
         }
       ],
       "bottomArray": [],
       "key": -7,
-      "loc": "-150 200"
+      "loc": "300 200"
     }
   ],
   "linkDataArray": [

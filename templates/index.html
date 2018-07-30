@@ -6,9 +6,14 @@
 <meta name="description" content="Nodes with varying lists of ports on each of four sides." />
 <!-- Copyright 1998-2018 by Northwoods Software Corporation. -->
 <meta charset="UTF-8">
-<script src="{{ url_for('static', filename='go-debug.js') }}"></script>
-<script src="{{ url_for('static', filename='drawnodes.js') }}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/datainspector.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/drawnodes.css') }}">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+<script src="{{ url_for('static', filename='js/go-debug.js') }}"></script>
+<script src="{{ url_for('static', filename='js/drawnodes.js') }}"></script>
+<script src="{{ url_for('static', filename='js/datainspector.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript">
   // Save the model to / load it from JSON text shown on the page itself, not in a database.
   function save() {
@@ -37,22 +42,13 @@
 </head>
 <body onload="init(); load()">
 <div id="sample">
-  <div id="myDiagramDiv" style="width:80vw; height:50vh; border:1px solid black; margin: auto;"></div>
-  <p>
-    Double-click in the diagram background in order to add a new node there.
-    In this sample you can add ports to a selected node by clicking the above buttons or by using the context menu.
-    Draw links between ports by dragging between ports.
-    If you select a link you can relink or reshape it.
-    Right-click or touch-hold on a port to bring up a context menu that allows you to remove it or change its color.
-  </p>
-  <p>
-    The diagram also uses a custom link to allow for special routing to help parallel links avoid each other
-    using overridden <a>Link.computeEndSegmentLength</a>, <a>Link.hasCurviness</a>, and <a>Link.computeCurviness</a>
-    functions.
-  </p>
-  <p>
-    See the <a href="../intro/ports.html">Ports Intro page</a> for an explanation of GoJS ports.
-  </p>
+  <div id="myDiagramDiv" style="height:75vh; width:60vw; border:1px solid gray; margin: auto;"></div>
+  <div id="infoDraggable" class="draggable" style="display: inline-block; vertical-align: top; padding: 5px; top: 20px; left: 380px;">
+    <div id="infoDraggableHandle" class="handle">Info</div>
+    <div>
+    <div id="myInfo"></div>
+    </div>
+  </div> 
   <div>
     <button id="SaveButton" onclick="save()">Save</button>
     <button onclick="load()">Load</button>
