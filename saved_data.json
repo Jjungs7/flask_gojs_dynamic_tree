@@ -13,7 +13,15 @@
       "bottomArray": [
         {
           "portId": "bottom0",
-          "portColor": "#88dcd0"
+          "portColor": "#f0fc96"
+        },
+        {
+          "portId": "bottom1",
+          "portColor": "#f1c38d"
+        },
+        {
+          "portId": "bottom2",
+          "portColor": "#c9c7bb"
         }
       ],
       "key": -9,
@@ -26,19 +34,61 @@
       "topArray": [
         {
           "portId": "top0",
-          "portColor": "#da8e9f"
+          "portColor": "#e684d1"
         }
       ],
       "bottomArray": [],
       "key": -10,
       "loc": "0 200",
       "major": 6,
-      "minor": 36970,
-      "time": "2018-07-30 15:03:05",
-      "timestamp": 1532962985686,
-      "temp": 25.91,
-      "hum": 64.31,
-      "rssi": -68
+      "minor": 34925,
+      "time": "2018-07-30 17:34:31",
+      "timestamp": 1532972071060,
+      "temp": 27.97,
+      "hum": 60.41,
+      "rssi": -69
+    },
+    {
+      "name": "Major 2",
+      "leftArray": [],
+      "rightArray": [],
+      "topArray": [
+        {
+          "portId": "top0",
+          "portColor": "#ee91cd"
+        }
+      ],
+      "bottomArray": [],
+      "key": -8,
+      "loc": "150 200",
+      "major": 2,
+      "minor": 34157,
+      "time": "2018-07-30 17:34:32",
+      "timestamp": 1532972072024,
+      "temp": 27.97,
+      "hum": 58.94,
+      "rssi": -55
+    },
+    {
+      "name": "Major 1",
+      "leftArray": [],
+      "rightArray": [],
+      "topArray": [
+        {
+          "portId": "top0",
+          "portColor": "#aeef89"
+        }
+      ],
+      "bottomArray": [],
+      "key": -7,
+      "loc": "300 200",
+      "major": 1,
+      "minor": 33901,
+      "time": "2018-07-30 17:34:11",
+      "timestamp": 1532972051659,
+      "temp": 27.97,
+      "hum": 58.45,
+      "rssi": -101
     }
   ],
   "linkDataArray": [
@@ -47,7 +97,60 @@
       "to": -10,
       "fromPort": "bottom0",
       "toPort": "top0",
-      "points": []
+      "points": [
+        136,
+        37,
+        136,
+        51,
+        136,
+        104,
+        0,
+        104,
+        0,
+        153,
+        0,
+        163
+      ]
+    },
+    {
+      "from": -9,
+      "to": -8,
+      "fromPort": "bottom1",
+      "toPort": "top0",
+      "points": [
+        150,
+        37,
+        150,
+        55,
+        150,
+        108,
+        150,
+        108,
+        150,
+        153,
+        150,
+        163
+      ]
+    },
+    {
+      "from": -9,
+      "to": -7,
+      "fromPort": "bottom2",
+      "toPort": "top0",
+      "points": [
+        164,
+        37,
+        164,
+        47,
+        164,
+        114,
+        300,
+        114,
+        300,
+        149,
+        300,
+        163
+      ]
     }
   ]
 }

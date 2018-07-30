@@ -22,10 +22,14 @@
       url: "/receiveJSON",
       data: myDiagram.model.toJson(),
       contentType: "application/json; charset=UTF-8",
-      dataType: "json" 
+      dataType: "json",
+      success: function() {
+        myDiagram.isModified = false;
+      },
+      error: function() {
+          console.log(error);
+      }
     });
-
-    myDiagram.isModified = false;
   }
 
   function load() {

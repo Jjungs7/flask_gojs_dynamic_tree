@@ -406,7 +406,7 @@ function changeColor(port) {
 }
 
 var prevTimestamp = -1;
-var json;
+var json = {};
 
 function requestData() {
      $.ajax({
@@ -415,25 +415,28 @@ function requestData() {
 
          success: function(point) {
              if(prevTimestamp != point.timestamp) {
-                 loadJson();
                  var newKey = -10;
                  var newData;
-                 var nodes = json["nodeDataArray"];
-                 var links = json["linkDataArray"];
+                 var nodes = myDiagram.model.nodeDataArray;
+                 var links = myDiagram.model.linkDataArray;
                  var locXList = [];
                  var keyList = [];
-                 var exists = false;
+                 var currentNode = null;
                  var hubNode;
                  nodes.forEach((node) => {
                      keyList.push(node["key"]);
                      if(node["name"] == ("Major " + point.major)) {
-                         exists = true;
+                         currentNode = node;
                      }
                      if(node["name"] == "HUB") {
                          hubNode = node;
                      }
                  });
-                 if(!exists) {
+                 if(currentNode == null) {
+                     // when node does not exist
+                     // create new node
+                     myDiagram.startTransaction("addNode");
+
                      if(nodes.length % 2 == 0) {
                          hubNode["loc"] = ((nodes.length / 2) * 150).toString() + " 0";
                      }
@@ -474,21 +477,43 @@ function requestData() {
                         "from": hubNode["key"],
                         "to": newKey,
                         "fromPort": "bottom"+hubNode["bottomArray"].length.toString(),
-                        "toPort": "top0",
-                        "points": [
-                        ]
+                        "toPort": "top0"
                      }
-                     hubNode["bottomArray"].push(
-                         {
+                     var newHubPort =
+                     {
                             "portId": "bottom"+hubNode["bottomArray"].length.toString(),
                             "portColor": go.Brush.randomColor()
-                         }
-                     );
-                     nodes.push(newData);
-                     links.push(newPort);
-                     myDiagram.model = go.Model.fromJson(json);
+                     }
+                     myDiagram.model.insertArrayItem(hubNode["bottomArray"], -1, newHubPort);
+                     myDiagram.model.addNodeData(newData);
+                     myDiagram.model.addLinkData(newPort);
+
+                     myDiagram.commitTransaction("addNode");
+
                      save();
-                     load();
+
+                 } else {
+                     // when node already exists
+                     // updates current node data
+                     var data;
+                     myDiagram.model.nodeDataArray.forEach((node) => {
+                         if(node["key"] == currentNode["key"]) {
+                             data = node;
+                         }
+                     })
+                     myDiagram.startTransaction("updateNode");
+
+                     myDiagram.model.setDataProperty(data, "major", point.major);
+                     myDiagram.model.setDataProperty(data, "minor", point.minor);
+                     myDiagram.model.setDataProperty(data, "time", point.time);
+                     myDiagram.model.setDataProperty(data, "timestamp", point.timestamp);
+                     myDiagram.model.setDataProperty(data, "temp", point.temp);
+                     myDiagram.model.setDataProperty(data, "hum", point.hum);
+                     myDiagram.model.setDataProperty(data, "rssi", point.rssi);
+
+                     myDiagram.commitTransaction("updateNode");
+
+                     save();
                  }
                  prevTimestamp = point.timestamp;
              }
