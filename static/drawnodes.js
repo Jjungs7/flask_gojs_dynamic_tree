@@ -273,7 +273,6 @@ CustomLink.prototype.hasCurviness = function() {
 
 /** @override */
 CustomLink.prototype.computeCurviness = function() {
-    console.log("check");
   if (isNaN(this.curviness)) {
     var fromnode = this.fromNode;
     var fromport = this.fromPort;
@@ -402,7 +401,6 @@ function requestData() {
              if(prevTimestamp != point.timestamp) {
                  loadJson();
                  var newKey = -10;
-                 var newLoc;
                  var newData;
                  var nodes = json["nodeDataArray"];
                  var links = json["linkDataArray"];
@@ -411,8 +409,6 @@ function requestData() {
                  var exists = false;
                  var hubNode;
                  nodes.forEach((node) => {
-                     var locX = parseInt(node["loc"].split(" ")[0]);
-                     locXList.push(locX);
                      keyList.push(node["key"]);
                      if(node["name"] == ("Major " + point.major)) {
                          exists = true;
@@ -422,19 +418,8 @@ function requestData() {
                      }
                  });
                  if(!exists) {
-                     var locX = -450;
-                     while(true) {
-                         var existsLoc = false;
-                         locXList.forEach((num) => {
-                             if(num == locX) {
-                                 locX += 150;
-                                 existsLoc = true;
-                             }
-                         });
-                         if(!existsLoc) {
-                             newLoc = locX.toString() + " 200";
-                             break;
-                         }
+                     if(nodes.length % 2 == 0) {
+                         hubNode["loc"] = ((nodes.length / 2) * 150).toString() + " 0";
                      }
                      while(true) {
                          var existsKey = false;
@@ -460,7 +445,7 @@ function requestData() {
                         ],
                        "bottomArray": [],
                        "key": newKey,
-                       "loc": newLoc
+                       "loc": ((nodes.length-1) * 150).toString() + " 200"
                      }
                      var newPort = {
                         "from": hubNode["key"],
