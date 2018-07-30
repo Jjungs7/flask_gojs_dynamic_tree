@@ -1,4 +1,6 @@
 function init() {
+
+    load();
     // create new diagram
   if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
   var GO = go.GraphObject.make;  //for conciseness in defining node templates
@@ -412,7 +414,6 @@ function requestData() {
      $.ajax({
          url:'http://165.132.105.119:3000/new_data',
          dataType : "json",
-
          success: function(point) {
              if(prevTimestamp != point.timestamp) {
                  var newKey = -10;
@@ -481,8 +482,8 @@ function requestData() {
                      }
                      var newHubPort =
                      {
-                            "portId": "bottom"+hubNode["bottomArray"].length.toString(),
-                            "portColor": go.Brush.randomColor()
+                        "portId": "bottom"+hubNode["bottomArray"].length.toString(),
+                        "portColor": go.Brush.randomColor()
                      }
                      myDiagram.model.insertArrayItem(hubNode["bottomArray"], -1, newHubPort);
                      myDiagram.model.addNodeData(newData);
