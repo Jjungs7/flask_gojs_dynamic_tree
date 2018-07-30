@@ -216,10 +216,13 @@ function init() {
           {
             properties: {
               // key would be automatically added for nodes, but we want to declare it read-only also:
-              "key": { readOnly: true, show: Inspector.showIfPresent },
-              // fill and stroke would be automatically added for nodes, but we want to declare it a color also:
-              "fill": { show: Inspector.showIfPresent, type: 'color' },
-              "stroke": { show: Inspector.showIfPresent, type: 'color' }
+                "key": { readOnly: true, show: Inspector.showIfPresent },
+                "name": { show: Inspector.showIfPresent },
+                "leftArray": { show: false },
+                "topArray": { show: false },
+                "rightArray": { show: false },
+                "bottomArray": { show: false },
+                "loc": { show: Inspector.showIfPresent }
             }
           });
     });
@@ -447,18 +450,25 @@ function requestData() {
                          }
                      }
                      newData = {
-                       "name": "Major " + point.major,
-                       "leftArray": [],
-                       "rightArray": [],
-                       "topArray": [
-                            {
-                               "portId": "top0",
-                               "portColor": go.Brush.randomColor()
-                            }
-                        ],
-                       "bottomArray": [],
-                       "key": newKey,
-                       "loc": ((nodes.length-1) * 150).toString() + " 200"
+                         "name": "Major " + point.major,
+                         "leftArray": [],
+                         "rightArray": [],
+                         "topArray": [
+                              {
+                                 "portId": "top0",
+                                 "portColor": go.Brush.randomColor()
+                              }
+                          ],
+                         "bottomArray": [],
+                         "key": newKey,
+                         "loc": ((nodes.length-1) * 150).toString() + " 200",
+                         "major": point.major,
+                         "minor": point.minor,
+                         "time": point.time,
+                         "timestamp": point.timestamp,
+                         "temp": point.temp,
+                         "hum": point.hum,
+                         "rssi": point.rssi
                      }
                      var newPort = {
                         "from": hubNode["key"],
