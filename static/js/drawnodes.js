@@ -218,6 +218,7 @@ function init() {
         function(e, obj) { e.diagram.commandHandler.redo(); },
         function(o) { return o.diagram.commandHandler.canRedo(); })
     );
+
     $(function() {
         $("#infoDraggable").draggable({ handle: "#infoDraggableHandle" });
         var inspector = new Inspector('myInfo', myDiagram,
@@ -414,7 +415,6 @@ function changeColor(port) {
 }
 
 var prevTimestamp = -1;
-var json = {};
 
 function requestData() {
     $.ajax({
@@ -428,7 +428,7 @@ function requestData() {
                 var keyList = [];
                 var currentNode = null;
                 var hubNode;
-                var hubLoc;
+                var hubLoc = null;
                 nodes.forEach((node) => {
                     keyList.push(node["key"]);
                     if(node["name"] == ("Major " + point.major)) {
@@ -503,7 +503,6 @@ function requestData() {
                     myDiagram.commitTransaction("addNode");
 
                     save();
-                    load();
 
                 } else {
                     // when node already exists

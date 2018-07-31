@@ -6,10 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def drawNodes():
-    with open('saved_data.json', 'r') as f:
-        data = json.load(f)
-
-    return render_template('index.html', data = json.dumps(data))
+    return render_template('index.html')
 
 @app.route('/receiveJSON', methods = ['POST'])
 def receiveJSON():
