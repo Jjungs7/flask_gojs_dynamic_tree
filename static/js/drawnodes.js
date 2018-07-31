@@ -425,11 +425,10 @@ function requestData() {
                 var newKey = -10;
                 var newData;
                 var nodes = myDiagram.model.nodeDataArray;
-                var links = myDiagram.model.linkDataArray;
-                var locXList = [];
                 var keyList = [];
                 var currentNode = null;
                 var hubNode;
+                var hubLoc;
                 nodes.forEach((node) => {
                     keyList.push(node["key"]);
                     if(node["name"] == ("Major " + point.major)) {
@@ -442,10 +441,11 @@ function requestData() {
                 if(currentNode == null) {
                     // when node does not exist
                     // create new node
-                    myDiagram.startTransaction("addNode");
 
                     if(nodes.length % 2 == 0) {
-                        hubNode["loc"] = ((nodes.length / 2) * 150).toString() + " 0";
+                        hubLoc = ((nodes.length / 2) * 150).toString() + " 0";
+                    } else if(nodes.length == 1) {
+                        hubLoc = "0 0";
                     }
                     while(true) {
                         var existsKey = false;
@@ -492,6 +492,10 @@ function requestData() {
                         "portId": "bottom"+hubNode["bottomArray"].length.toString(),
                         "portColor": connection_stable
                     }
+
+                    myDiagram.startTransaction("addNode");
+
+                    if(hubLoc != null) myDiagram.model.setDataProperty(hubNode, "loc", hubLoc);
                     myDiagram.model.insertArrayItem(hubNode["bottomArray"], -1, newHubPort);
                     myDiagram.model.addNodeData(newData);
                     myDiagram.model.addLinkData(newPort);
@@ -499,25 +503,20 @@ function requestData() {
                     myDiagram.commitTransaction("addNode");
 
                     save();
+                    load();
 
                 } else {
                     // when node already exists
                     // updates current node data
-                    var data;
-                    myDiagram.model.nodeDataArray.forEach((node) => {
-                        if(node["key"] == currentNode["key"]) {
-                            data = node;
-                        }
-                    })
                     myDiagram.startTransaction("updateNode");
 
-                    myDiagram.model.setDataProperty(data, "major", point.major);
-                    myDiagram.model.setDataProperty(data, "minor", point.minor);
-                    myDiagram.model.setDataProperty(data, "time", point.time);
-                    myDiagram.model.setDataProperty(data, "timestamp", point.timestamp);
-                    myDiagram.model.setDataProperty(data, "temp", point.temp);
-                    myDiagram.model.setDataProperty(data, "hum", point.hum);
-                    myDiagram.model.setDataProperty(data, "rssi", point.rssi);
+                    myDiagram.model.setDataProperty(currentNode, "major", point.major);
+                    myDiagram.model.setDataProperty(currentNode, "minor", point.minor);
+                    myDiagram.model.setDataProperty(currentNode, "time", point.time);
+                    myDiagram.model.setDataProperty(currentNode, "timestamp", point.timestamp);
+                    myDiagram.model.setDataProperty(currentNode, "temp", point.temp);
+                    myDiagram.model.setDataProperty(currentNode, "hum", point.hum);
+                    myDiagram.model.setDataProperty(currentNode, "rssi", point.rssi);
 
                     myDiagram.commitTransaction("updateNode");
 
