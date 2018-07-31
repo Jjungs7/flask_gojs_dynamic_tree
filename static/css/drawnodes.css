@@ -1,3 +1,11 @@
+/*
+affect all canvas elements inside myDiagramDiv 
+#myDiagramDiv canvas {
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}"
+*/
+
 .draggable {
   display: inline-block;
   vertical-align: top;

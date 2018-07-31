@@ -11,11 +11,152 @@
       "rightArray": [],
       "topArray": [],
       "bottomArray": [
+        {
+          "portId": "bottom0",
+          "portColor": "#17f413"
+        },
+        {
+          "portId": "bottom1",
+          "portColor": "#17f413"
+        },
+        {
+          "portId": "bottom2",
+          "portColor": "#17f413"
+        }
       ],
       "key": -9,
       "loc": "150 0"
+    },
+    {
+      "name": "Major 6",
+      "leftArray": [],
+      "rightArray": [],
+      "topArray": [
+        {
+          "portId": "top0",
+          "portColor": "#17f413"
+        }
+      ],
+      "nodeColor": "#27AE60",
+      "bottomArray": [],
+      "key": -10,
+      "loc": "0 200",
+      "major": 6,
+      "minor": 36971,
+      "time": "2018-07-31 17:07:44",
+      "timestamp": 1533056864844,
+      "temp": 26.6,
+      "hum": 64.31,
+      "rssi": -84
+    },
+    {
+      "name": "Major 1",
+      "leftArray": [],
+      "rightArray": [],
+      "topArray": [
+        {
+          "portId": "top0",
+          "portColor": "#17f413"
+        }
+      ],
+      "nodeColor": "#27AE60",
+      "bottomArray": [],
+      "key": -8,
+      "loc": "150 200",
+      "major": 1,
+      "minor": 35947,
+      "time": "2018-07-31 17:07:36",
+      "timestamp": 1533056856302,
+      "temp": 26.6,
+      "hum": 62.36,
+      "rssi": -82
+    },
+    {
+      "name": "Major 2",
+      "leftArray": [],
+      "rightArray": [],
+      "topArray": [
+        {
+          "portId": "top0",
+          "portColor": "#17f413"
+        }
+      ],
+      "nodeColor": "#27AE60",
+      "bottomArray": [],
+      "key": -7,
+      "loc": "300 200",
+      "major": 2,
+      "minor": 36459,
+      "time": "2018-07-31 17:07:20",
+      "timestamp": 1533056840498,
+      "temp": 26.6,
+      "hum": 63.34,
+      "rssi": -58
     }
   ],
   "linkDataArray": [
+    {
+      "from": -9,
+      "to": -10,
+      "fromPort": "bottom0",
+      "toPort": "top0",
+      "strokeColor": "#074DFF",
+      "points": [
+        136,
+        37,
+        136,
+        51,
+        136,
+        104,
+        0,
+        104,
+        0,
+        153,
+        0,
+        163
+      ]
+    },
+    {
+      "from": -9,
+      "to": -8,
+      "fromPort": "bottom1",
+      "toPort": "top0",
+      "strokeColor": "#074DFF",
+      "points": [
+        150,
+        37,
+        150,
+        55,
+        150,
+        108,
+        150,
+        108,
+        150,
+        153,
+        150,
+        163
+      ]
+    },
+    {
+      "from": -9,
+      "to": -7,
+      "fromPort": "bottom2",
+      "toPort": "top0",
+      "strokeColor": "#074DFF",
+      "points": [
+        164,
+        37,
+        164,
+        47,
+        164,
+        114,
+        300,
+        114,
+        300,
+        149,
+        300,
+        163
+      ]
+    }
   ]
 }

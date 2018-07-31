@@ -1,6 +1,17 @@
 //global color varible
-const connection_stable = "#4AE502"
-const nodeColor = "#708090"
+const default_linkColor = "#2F4F4F";
+const connection_stable_link = "#074DFF";
+const connection_stable = "#17f413"; //Stable port
+const default_nodeColor = "#2C3E50"; // HUB
+const nodeColor = "#27AE60"; // iBeacons
+const nodeColor2 = "#8E44AD";
+const nodeColor3 = "#2980B9";
+const nodeColor4 = "#16a085";
+const nodeColor5 = "#F39C12";
+const nodeColor6 = "#C0392B";
+const nodeColor7 = "#E67E22";
+const nodeColor8 = "#7F8C8D";
+
 
 
 function init() {
@@ -88,7 +99,7 @@ function init() {
         { row: 1, column: 1, name: "BODY",
         stretch: go.GraphObject.Fill },
         GO(go.Shape, "Rectangle",
-            { fill: "#808080", stroke: null, strokeWidth: 0,
+            { fill: default_nodeColor, stroke: null, strokeWidth: 0,
             minSize: new go.Size(85, 50) }, new go.Binding("fill", "nodeColor")),
 
         GO(go.TextBlock,
@@ -189,12 +200,13 @@ function init() {
             corner: 4,
             curve: go.Link.JumpGap,
             reshapable: true,
-            resegmentable: true,
-            relinkableFrom: true,
-            relinkableTo: true
+            resegmentable: false, // can not change link's segment ex) cannot change ㄴ shape to ㄹ shape
+            relinkableFrom: false, // can not change links
+            relinkableTo: false // can not change links
         },
         new go.Binding("points").makeTwoWay(),
-        GO(go.Shape, { stroke: "#2F4F4F", strokeWidth: 2 })
+        GO(go.Shape, { stroke: default_linkColor, strokeWidth: 2 }, 
+          new go.Binding("stroke", "strokeColor"))  // to change stroke color of link
     );
 
     // support double-clicking in the background to add a copy of this data as a node
@@ -481,11 +493,13 @@ function requestData() {
                         "hum": point.hum,
                         "rssi": point.rssi
                     }
+                    // variable newPort is new link! not really a port!
                     var newPort = {
                         "from": hubNode["key"],
                         "to": newKey,
                         "fromPort": "bottom"+hubNode["bottomArray"].length.toString(),
-                        "toPort": "top0"
+                        "toPort": "top0",
+                        "strokeColor" : connection_stable_link
                     }
                     var newHubPort =
                     {
